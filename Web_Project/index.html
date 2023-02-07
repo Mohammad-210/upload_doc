@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="assets/Css/mystyles.css" />
+  </head>
+  <body>
+    
+    <div class="login_container" id="loginForm">
+      <form action="assets/login.php" method="post">
+        <input type="text" placeholder="UserName" name="uName"/>
+        <input type="password" placeholder="Password" name="pswd" />
+        <input type="submit" value="LOGIN" />
+      </form>
+      <span>Don't have account!? <a onclick="openForm()"> Sign up</a></span>
+    </div>
+
+    <div class="login_container" id="signUpForm">
+      <form action="assets/register.php" method="post" >
+        <h1>Login</h1>
+        <input type="text" placeholder="Enter Email" name="email" required>
+        <input type="text" placeholder="Enter Full Name" name="fName">
+        <input type="text" placeholder="UserName" name="UserName"/>  
+        <input type="password" placeholder="Enter Password" name="pswd" required>
+        <input type="submit" value="Sign UP"/>
+        <input type="button" class="btn cancel" value="close" onclick="closeForm()"/>
+      </form>
+    </div>
+
+    <script>
+      function openForm() {
+        
+        document.getElementById("loginForm").style.display = "none";
+        document.getElementById("signUpForm").style.display = "grid";
+      }
+      
+      function closeForm() {
+        document.getElementById("signUpForm").style.display = "none";
+        document.getElementById("loginForm").style.display = "grid";
+      }
+      </script>
+  </body>
+</html>

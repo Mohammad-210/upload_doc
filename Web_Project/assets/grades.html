@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>livesearch</title>
+    <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+</head>
+<body>
+    <div class="container" style="max-width: 50%;">
+        <div class="text-center mt-5 mb-4">
+            <h2 >Grades</h2>
+        </div>
+        <input type="text" class="form-control" id="myInput">
+    </div>
+    
+    <div id="searchResult">
+
+    </div>    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        
+        $("#myInput").keyup(function(){
+            var str = $(this).val();
+            // alert(str);
+            if (str != ""){
+                $.ajax({
+                    url:"livesearch.php",
+                    method:"POST",
+                    data:{input:str},
+
+                    success:function(data){
+                        $("#searchResult").html(data);
+                    }
+                });
+            }else{
+                // $("#searchResult").css("display","none");
+            }
+        });
+    });
+    </script>
+</body>
+</html>
+
